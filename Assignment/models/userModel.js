@@ -22,7 +22,7 @@ const User = {
         const query = 'SELECT * FROM users WHERE id = ?';
         db.query(query, [userId], (err, results) => {
             if (err) return callback(err);
-            callback(null, results);
+            callback(null, results[0]); // Ensure you return a single user object
         });
     },
     updateUser: (userId, user, callback) => {
